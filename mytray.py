@@ -29,14 +29,14 @@ class ConnectTray():
 		pop_menu = gtk.Menu()
                 
                 for i in SSH:
-                        _item = gtk.MenuItem()
+                        _item = gtk.ImageMenuItem(gtk.STOCK_CONNECT)
                         _item.set_name(i)
                         _item.set_label(i)
                         _item.connect("activate", self.do_ssh)
                         pop_menu.append(_item)
                 
                 for i in RDESKTOP:
-                        _item = gtk.MenuItem()
+                        _item = gtk.ImageMenuItem(gtk.STOCK_NETWORK)
                         _item.set_name(i)
                         _item.set_label(re.sub(r'-p[^ ]+', '-p***', i))
                         _item.connect("activate", self.do_rdesktop)
@@ -49,7 +49,8 @@ class ConnectTray():
                 _item.connect("activate", self.edit_self)
                 pop_menu.append(_item)
 
-                _item = gtk.MenuItem('Restart')
+                _item = gtk.ImageMenuItem(gtk.STOCK_REFRESH)
+                _item.set_label('Restart')
                 _item.connect("activate", self.restart)
                 pop_menu.append(_item)
 
